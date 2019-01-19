@@ -1,5 +1,8 @@
 %h1 word wall
-- @words.each do |p|
-  %h2= p.word
-  %p= p.meaning
+.words 
+  - @words.each do |p|
+    .content 
+      %h2.title= p.word 
+      %a.delete{:href => "/words/delete/#{p.id}"} x
+      %p= p.meaning
 

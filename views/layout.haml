@@ -1,13 +1,18 @@
 %html
   %head
-    %meta
-
+    %link{:href => "https://fonts.googleapis.com/css?family=Aleo", :rel => "stylesheet"}
+    %link{:href => "/app.css", :type =>"text/css", :rel => "stylesheet"}
   %body
     %nav
-      %h1 Wordy
       %ul
-        %li <a href="/">Home</a> 
-        %li <a href="/words">Word Wall</a>
-        %li <a href="/words/new">New Word</a>
-        %li <a href="/words/stats">Stats</a>
-    = yield
+        %li#title Learn Words
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/words"} Words 
+        %li
+          %a{:href => "/words/new"} New
+        %li
+          %a{:href => "/words/stats"} Stats
+    %div
+      = yield 
