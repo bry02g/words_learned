@@ -1,4 +1,4 @@
-$background-color: #282525
+$background-color: #282525 
 $darker-color: #181818
 $complentary-color: #f41818
 $text-color-light: #FFFFFF
@@ -9,10 +9,12 @@ $nav-background-color: #232323
 $darkest-color: #151515
 
 $font-stack: 'Aleo', serif
+
 body
   font-family: $font-stack
   background-color: $background-color
 
+// navigation bar style
 nav 
   padding: 14px 16px
   background-color: $nav-background-color
@@ -35,32 +37,51 @@ nav
 h1
   color: $complentary-color
 
+h2
+  color: $text-color-dark
+
 p
   color: $text-color-light
 
 #title
   color: $complentary-color
 
+// parent div containing cards of word with meaing
+// setting up to use grid layout so children are layed out
+// in rows and columns
 .words
   display: grid 
   grid-template-columns: 1fr 1fr 1fr 1fr
   grid-gap: 15px
 
 
+// the div for each individual card
 .content 
   border-radius: 2.5px
   padding: 15px
   background-color: $darker-color
   color: $text-color-light
 
+  // want to underline the word
+  h2
+    border-bottom: thin solid
+
+// need this so delete button is inline
 .title
   display: inline-block
-  width: 90%
 
+// style for the delete button
 .delete
+  text-align: right
   background-color: $darkest-color 
   color: $complentary-color
   padding: 5px 7.5px
   border-radius: 5px
   border: thin solid
   border-color: red
+  float: right
+
+// style for list items
+.list
+  li
+    color: $text-color-light

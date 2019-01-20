@@ -22,6 +22,9 @@ nav {
 h1 {
   color: #f41818; }
 
+h2 {
+  color: #e0c7c7; }
+
 p {
   color: #FFFFFF; }
 
@@ -38,17 +41,23 @@ p {
   padding: 15px;
   background-color: #181818;
   color: #FFFFFF; }
+  .content h2 {
+    border-bottom: thin solid; }
 
 .title {
-  display: inline-block;
-  width: 90%; }
+  display: inline-block; }
 
 .delete {
+  text-align: right;
   background-color: #151515;
   color: #f41818;
   padding: 5px 7.5px;
   border-radius: 5px;
   border: thin solid;
-  border-color: red; }
+  border-color: red;
+  float: right; }
+
+.list li {
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=app.css.map */
