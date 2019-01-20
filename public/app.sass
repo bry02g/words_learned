@@ -8,6 +8,9 @@ $nav-background-color: #232323
 
 $darkest-color: #151515
 
+
+$border-outline-color: #161616
+
 $font-stack: 'Aleo', serif
 
 body
@@ -15,7 +18,9 @@ body
   background-color: $background-color
 
 // navigation bar style
-nav 
+nav
+  border: thin solid
+  border-color: $border-outline-color
   padding: 14px 16px
   background-color: $nav-background-color
   ul
@@ -56,7 +61,9 @@ p
 
 
 // the div for each individual card
-.content 
+.content
+  border: thin solid
+  border-color: $border-outline-color
   border-radius: 2.5px
   padding: 15px
   background-color: $darker-color
@@ -85,3 +92,24 @@ p
 .list
   li
     color: $text-color-light
+
+
+.center_content
+  background-color: $nav-background-color
+  margin-top: 2%
+  margin-left: 15%
+  margin-right: 15%
+  border-radius: 2.5px
+  border: thin solid
+  border-color: #161616 
+
+  h1
+    text-align: center
+
+  form
+    text-align: center
+    margin: auto
+    margin-bottom: 2%
+
+.welcome
+  padding: 10px

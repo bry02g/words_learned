@@ -3,6 +3,8 @@ body {
   background-color: #282525; }
 
 nav {
+  border: thin solid;
+  border-color: #161616;
   padding: 14px 16px;
   background-color: #232323; }
   nav ul {
@@ -37,6 +39,8 @@ p {
   grid-gap: 15px; }
 
 .content {
+  border: thin solid;
+  border-color: #161616;
   border-radius: 2.5px;
   padding: 15px;
   background-color: #181818;
@@ -59,5 +63,23 @@ p {
 
 .list li {
   color: #FFFFFF; }
+
+.center_content {
+  background-color: #232323;
+  margin-top: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 2.5px;
+  border: thin solid;
+  border-color: #161616; }
+  .center_content h1 {
+    text-align: center; }
+  .center_content form {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2%; }
+
+.welcome {
+  padding: 10px; }
 
 /*# sourceMappingURL=app.css.map */
