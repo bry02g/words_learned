@@ -24,7 +24,8 @@ nav {
 h1 {
   color: #f41818; }
 
-h2 {
+h2,
+label {
   color: #e0c7c7; }
 
 p {
@@ -81,5 +82,25 @@ p {
 
 .welcome {
   padding: 10px; }
+
+.date {
+  text-align: right;
+  color: #e0c7c7; }
+
+.material-icons {
+  color: #f41818; }
+
+.sort {
+  margin: 15px; }
+
+.buttonlike {
+  text-decoration: none;
+  background-color: #e0c7c7;
+  color: #151515;
+  padding: 5px;
+  margin: 5px;
+  border: thin solid;
+  border-radius: 5px;
+  border-color: #151515; }
 
 /*# sourceMappingURL=app.css.map */

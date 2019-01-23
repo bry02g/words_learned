@@ -1,8 +1,22 @@
 %h1 word wall
+.sort
+  %a.buttonlike{:href => "/words?sort=favorite"} favorite
+  %a.buttonlike{:href => "/words?sort=alph"} alphabeth
+  %a.buttonlike{:href => "/words?sort=date"}by date
+  %a.buttonlike{:href => "/words?sort=length"}a by length
 .words 
   - @words.each do |p|
     .content 
       %h2.title= p.word 
       %a.delete{:href => "/words/delete/#{p.id}"} x
       %p= p.meaning
+      %p.date= p.get_date
+
+      -if p.favorite
+        %a{:href => "words/unlike/#{p.id}"}
+          %i.material-icons favorite
+      -else
+        %a{:href => "/words/favorite/#{p.id}"}
+          %i.material-icons favorite_border
+      
 

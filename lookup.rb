@@ -16,25 +16,39 @@ class Lookup
     lem_url = @url  + 'inflections/' + @language + '/' + @word.downcase
     header =  {'app_id' => @@app_id, 'app_key' => @@app_key}
     begin 
-      response = RestClient.get lem_url, header
-      result = JSON.parse(response.body)
-      search_term = result['results'][0]['lexicalEntries'][0]['inflectionOf'][0]['text'] 
-      puts "we got inflections of #{search_term}"
 
-      entries_url = @url + 'entries/' + @language + '/' + search_term.downcase
+      entries_url = @url + 'entries/' + @language + '/' + @word.downcase
       response = RestClient.get entries_url, header
-      result = JSON.parse(response.body)
-      meaning = result['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
-      puts "the meaning is #{meaning}"
 
-      return meaning 
+      result = JSON.parse(response.body)
+
+      meanings = result['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
+      puts "the meaning (without inflection) is #{meanings}"
+
+      return meanings
 
     rescue RestClient::ExceptionWithResponse => e
-      e.response
+      begin 
+        puts "could not find #{@word} trying inflections"
+
+        response = RestClient.get lem_url, header
+        result = JSON.parse(response.body)
+        search_term = result['results'][0]['lexicalEntries'][0]['inflectionOf'][0]['text'][0] 
+        puts "we got inflections of #{search_term}"
+
+        entries_url = @url + 'entries/' + @language + '/' + search_term.downcase
+        response = RestClient.get entries_url, header
+        result = JSON.parse(response.body)
+        #meaning = result['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]        
+        meanings = result['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
+        puts "the meaning is #{meanings}"
+        return meanings
+      rescue RestClient::ExceptionWithResponse => e
+        return "Unable to find definition"
+      end
     end
 
-    return "unable to find definition"
+    return "Word not found"
   end
 end
-
 

@@ -2,8 +2,6 @@
 .center_content
   %h1 Add a New Word
   %form{:action => "/words/create" ,:method => "post"}
-    %label
+    %label Word: 
     %input{:type => "text", :name => "word"}
     %button{:type => "submit"} Submit
-
-  

@@ -4,6 +4,8 @@ require 'haml'
 
 require_relative 'word'
 require_relative 'lookup'
+
+
 # route for description of application
 get '/' do
    haml :index  
@@ -12,7 +14,20 @@ end
 # route to display all the words entered in 
 # the database
 get '/words' do
-    @words = Word.all
+    if params[:sort]
+       method = params[:sort]
+       if method == 'favorite'
+           @words = Word.all(favorite: true)
+       elsif method == 'date'
+           @words = Word.all.sort {|x,y| x <=> y}
+       elsif method == 'alph'
+           @words = Word.all.sort {|x,y| x.word <=> y.word}
+       elsif method == 'length'
+           @words = Word.all.sort{|x,y| x.word.length <=> y.word.length}
+       end
+    else
+        @words = Word.all.sort {|x,y| y.created_at <=> x.created_at}
+    end
     haml :words
 end
 
@@ -44,7 +59,7 @@ end
 
 # this route get called when the user presses the x delete button
 # removing that word from the database
-get '/words/delete/:id' do
+get '/words/delete/:id' do 
     if params[:id]
         id = params[:id].to_i
         w = Word.get(id)
@@ -52,3 +67,24 @@ get '/words/delete/:id' do
     end
     redirect "/words"
 end 
+
+# this route is called to mark a word
+# as favorite
+get '/words/favorite/:id' do
+    if params[:id]
+        w = Word.get(params[:id].to_i)
+        w.favorite = true
+        w.save
+    end
+    redirect '/words'
+end
+
+get '/words/unlike/:id' do
+    if params[:id]
+        w = Word.get(params[:id].to_i)
+        w.favorite = false
+        w.save
+    end
+
+    redirect '/words'
+end
