@@ -8,7 +8,8 @@ $nav-background-color: #232323
 
 $darkest-color: #151515
 
-
+$button-color: #3788FF
+$button-border-color: #4788FF
 $border-outline-color: #161616
 
 $font-stack: 'Aleo', serif
@@ -43,6 +44,7 @@ h1
   color: $complentary-color
 
 h2,
+h3,
 label
   color: $text-color-dark
 
@@ -126,13 +128,14 @@ p
 .sort
   margin: 15px
 
-.buttonlike
+.buttonlike,
+button
   text-decoration: none
-  background-color: $text-color-dark 
-  color: $darkest-color
+  background-color: $button-color
+  color: $text-color-light 
   padding: 5px
   margin: 5px
   border: thin solid
   border-radius: 5px
-  border-color: $darkest-color
+  border-color: $button-border-color
   

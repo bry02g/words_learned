@@ -15,20 +15,26 @@ end
 # the database
 get '/words' do
     if params[:sort]
-       method = params[:sort]
-       if method == 'favorite'
+       @method = params[:sort]
+       if @method == 'favorite'
            @words = Word.all(favorite: true)
-       elsif method == 'date'
+       elsif @method == 'date'
            @words = Word.all.sort {|x,y| x <=> y}
-       elsif method == 'alph'
+       elsif @method == 'alph'
            @words = Word.all.sort {|x,y| x.word <=> y.word}
-       elsif method == 'length'
+       elsif @method == 'length'
            @words = Word.all.sort{|x,y| x.word.length <=> y.word.length}
        end
     else
+        @method = 'default'
         @words = Word.all.sort {|x,y| y.created_at <=> x.created_at}
     end
-    haml :words
+    @numOfWords = Word.all.size
+    if params[:json]
+        return @words.to_json
+    else 
+        haml :words
+    end
 end
 
 # route to handle the creation of new words
@@ -43,13 +49,17 @@ end
 # then redirect to word wall
 post '/words/create' do
     if params[:word]
-        w = Word.new
-        w.word = params[:word]
-        lookup = Lookup.new(w.word)
-        w.meaning = lookup.search
-        w.save
+        @w = Word.new
+        @w.word = params[:word]
+        lookup = Lookup.new(@w.word)
+        @w.meaning = lookup.search
+        @w.save
     end
-	redirect "/words"
+    if params[:json]
+        return @w.to_json
+    else 
+	    redirect "/words"
+    end
 end
 
 # shows some statistics on words learned
@@ -65,7 +75,11 @@ get '/words/delete/:id' do
         w = Word.get(id)
         w.destroy
     end
-    redirect "/words"
+    if params[:json]
+        return '{deleted: true}'
+    else 
+        redirect "/words"
+    end
 end 
 
 # this route is called to mark a word
@@ -79,6 +93,8 @@ get '/words/favorite/:id' do
     redirect '/words'
 end
 
+# this route is called to un like a word
+# and chage its state in the database
 get '/words/unlike/:id' do
     if params[:id]
         w = Word.get(params[:id].to_i)

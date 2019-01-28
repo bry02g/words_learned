@@ -25,6 +25,7 @@ h1 {
   color: #f41818; }
 
 h2,
+h3,
 label {
   color: #e0c7c7; }
 
@@ -93,14 +94,15 @@ p {
 .sort {
   margin: 15px; }
 
-.buttonlike {
+.buttonlike,
+button {
   text-decoration: none;
-  background-color: #e0c7c7;
-  color: #151515;
+  background-color: #3788FF;
+  color: #FFFFFF;
   padding: 5px;
   margin: 5px;
   border: thin solid;
   border-radius: 5px;
-  border-color: #151515; }
+  border-color: #4788FF; }
 
 /*# sourceMappingURL=app.css.map */
