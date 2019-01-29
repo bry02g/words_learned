@@ -1,2 +1,9 @@
+%script{:type => "text/javascript",
+	    :src => "https://www.google.com/jsapi"}
+%script{:type => "text/javascript",
+  :src => "/js/chartkick.js"}
+
 %h1 Ready for some stats
 %p You have learned a lot of words.
+= pie_chart({"Football" => 10, "Basketball" => 5})
+=line_chart(@data)

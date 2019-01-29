@@ -1,108 +1,23 @@
-body {
-  font-family: "Aleo", serif;
-  background-color: #282525; }
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - public/app.sass
 
-nav {
-  border: thin solid;
-  border-color: #161616;
-  padding: 14px 16px;
-  background-color: #232323; }
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-    nav ul li {
-      padding: 14px 16px;
-      display: inline; }
-      nav ul li a {
-        color: #FFFFFF;
-        text-decoration: none;
-        padding: 14px 16px; }
-        nav ul li a:hover {
-          background-color: #f41818; }
-
-h1 {
-  color: #f41818; }
-
-h2,
-h3,
-label {
-  color: #e0c7c7; }
-
-p {
-  color: #FFFFFF; }
-
-#title {
-  color: #f41818; }
-
-.words {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px; }
-
-.content {
-  border: thin solid;
-  border-color: #161616;
-  border-radius: 2.5px;
-  padding: 15px;
-  background-color: #181818;
-  color: #FFFFFF; }
-  .content h2 {
-    border-bottom: thin solid; }
-
-.title {
-  display: inline-block; }
-
-.delete {
-  text-align: right;
-  background-color: #151515;
-  color: #f41818;
-  padding: 5px 7.5px;
-  border-radius: 5px;
-  border: thin solid;
-  border-color: red;
-  float: right; }
-
-.list li {
-  color: #FFFFFF; }
-
-.center_content {
-  background-color: #232323;
-  margin-top: 2%;
-  margin-left: 15%;
-  margin-right: 15%;
-  border-radius: 2.5px;
-  border: thin solid;
-  border-color: #161616; }
-  .center_content h1 {
-    text-align: center; }
-  .center_content form {
-    text-align: center;
-    margin: auto;
-    margin-bottom: 2%; }
-
-.welcome {
-  padding: 10px; }
-
-.date {
-  text-align: right;
-  color: #e0c7c7; }
-
-.material-icons {
-  color: #f41818; }
-
-.sort {
-  margin: 15px; }
-
-.buttonlike,
-button {
-  text-decoration: none;
-  background-color: #3788FF;
-  color: #FFFFFF;
-  padding: 5px;
-  margin: 5px;
-  border: thin solid;
-  border-radius: 5px;
-  border-color: #4788FF; }
-
-/*# sourceMappingURL=app.css.map */
+Backtrace:
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:484:in `read'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:484:in `update_stylesheet'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `each'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/plugin.rb:109:in `method_missing'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/exec/base.rb:52:in `parse'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/exec/base.rb:19:in `parse!'
+/home/bryan/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/sass-3.4.25/bin/sass:13:in `<top (required)>'
+/home/bryan/.rbenv/versions/2.6.0/bin/sass:23:in `load'
+/home/bryan/.rbenv/versions/2.6.0/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - public/app.sass"; }

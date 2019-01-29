@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-timestamps'
-
+require 'chartkick'
+require 'groupdate'
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/words.db")
 
 class Word

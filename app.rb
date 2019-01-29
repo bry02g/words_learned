@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 require 'haml'
+require 'chartkick'
 
 require_relative 'word'
 require_relative 'lookup'
@@ -64,6 +65,7 @@ end
 
 # shows some statistics on words learned
 get '/words/stats' do 
+    @data = Word.all.group_by_day{|w| w.created_at}
     haml :stats
 end
 

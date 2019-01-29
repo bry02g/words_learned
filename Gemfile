@@ -15,8 +15,12 @@ gem 'haml'
 gem 'html2haml'
 
 gem 'rest-client'
+
 # javascript data visualization (charts) 
 gem 'chartkick'
+
+# groups object by date to use with chartkick
+gem 'groupdate'
 
 # postgress adapter 
 gem 'dm-postgres-adapter'
