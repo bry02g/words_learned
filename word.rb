@@ -4,6 +4,8 @@ require 'chartkick'
 require 'groupdate'
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/words.db")
 
+Groupdate.time_zone = false
+
 class Word
   include DataMapper::Resource
   property :id, Serial

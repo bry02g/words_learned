@@ -1,5 +1,8 @@
 %html
-  %head
+  %head 
+    %script{:type => "text/javascript", :src => "http://www.google.com/jsapi"}          
+    %script{:type => "text/javascript", :src => "/js/chartkick.js"}
+      
     %link{:href => "https://fonts.googleapis.com/css?family=Aleo", :rel => "stylesheet"} 
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons",
     :rel=>"stylesheet"}
@@ -17,4 +20,4 @@
         %li
           %a{:href => "/words/stats"} Stats
     %div
-      = yield 
+      =yield

@@ -65,8 +65,8 @@ end
 
 # shows some statistics on words learned
 get '/words/stats' do 
-    @data = Word.all.group_by_day{|w| w.created_at}
-    haml :stats
+    @data = Word.all.group_by_day {|w| w.created_at}.map {|k,v| [k,v.size]}
+	haml :stats	
 end
 
 # this route get called when the user presses the x delete button

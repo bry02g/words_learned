@@ -23,4 +23,4 @@ gem 'chartkick'
 gem 'groupdate'
 
 # postgress adapter 
-gem 'dm-postgres-adapter'
+#gem 'dm-postgres-adapter'
