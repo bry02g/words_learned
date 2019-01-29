@@ -66,6 +66,18 @@ end
 # shows some statistics on words learned
 get '/words/stats' do 
     @data = Word.all.group_by_day {|w| w.created_at}.map {|k,v| [k,v.size]}
+    if params[:method]
+        @method = params[:method]
+        if @method == 'week'
+            @data = Word.all.group_by_week {|w| w.created_at}.map {|k,v| [k,v.size]}
+        elsif @method == 'month'
+            @data = Word.all.group_by_month  {|w| w.created_at}.map {|k,v| [k,v.size]}
+        elsif @method == 'year'
+            @data = Word.all.group_by_year  {|w| w.created_at}.map {|k,v| [k,v.size]}
+        end
+    else
+        @method = 'day'
+    end
 	haml :stats	
 end
 

@@ -1,5 +1,9 @@
-
-%h1 Ready for some stats
+%h1 Ready for some stats (by #{@method})
+.stats
+  %a.buttonlike{:href => "/words/stats?method=day"} by Day
+  %a.buttonlike{:href => "/words/stats?method=week"} by Week
+  %a.buttonlike{:href => "/words/stats?method=month"} by Month
+  %a.buttonlike{:href => "/words/stats?method=year"} by Year
 %p You have learned a lot of words.
 =line_chart(@data)
 
